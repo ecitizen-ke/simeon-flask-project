@@ -13,3 +13,4 @@ def view_users(my_app):
         }
     # returning the dictionary as a JSON response
         return jsonify(user_data)
+    
