@@ -1,13 +1,6 @@
-from flask import Flask, jsonify
-from app.users import view_users
-from app.products import view_products
-app = Flask(__name__)
+from app import create_app
 
-# view 1
-view_users(app)
-
-# view 2
-view_products(app)
+app = create_app()
 
 if __name__ == '__main__':
     app.run(debug=True)
