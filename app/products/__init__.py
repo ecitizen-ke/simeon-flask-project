@@ -1,14 +1,13 @@
-from flask import jsonify
+from flask import Blueprint, jsonify
 
-def view_products(app):
-    @app.route('/products')
-    def get_products():
-        # Defining a dictionary with some product categories and items
-        product_data = {
-            "products" :{
-                "fruits" : ["apple", "banana", "mango"],
-                "beverages" : ["coffee", "tea", "cocacola"]
-            }
+products_bp = Blueprint('products', __name__)
+
+@products_bp.route('/products')
+def get_products():
+    product_data = {
+        "products": {
+            "fruits": ["apple", "banana", "mango"],
+            "beverages": ["coffee", "tea", "coca-cola"]
         }
-        # returning the dictionary as a JSON response
-        return jsonify(product_data)
+    }
+    return jsonify(product_data)

@@ -1,16 +1,14 @@
-from flask import jsonify
+from flask import Blueprint, jsonify
 
-def view_users(my_app):
-    @my_app.route('/users')
-    def get_users():
-        # Dictionary definition
-        user_data = {
-            "users": [
-                {"username": "firstUser", "password" : "firstPassowrd"},
-                {"username": "secondUser", "password" : "secondPassowrd"},
-                {"username": "thirdUser", "password" : "thirdPassowrd"}
-            ]
-        }
-    # returning the dictionary as a JSON response
-        return jsonify(user_data)
-    
+users_bp = Blueprint('users', __name__)
+
+@users_bp.route('/users')
+def get_users():
+    user_data = {
+        "users": [
+            {"username": "firstUser", "password": "firstPassword"},
+            {"username": "secondUser", "password": "secondPassword"},
+            {"username": "thirdUser", "password": "thirdPassword"}
+        ]
+    }
+    return jsonify(user_data)
