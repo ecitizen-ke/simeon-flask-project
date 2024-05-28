@@ -1,6 +1,6 @@
 from app import create_app
-from app.users import users_bp
-from app.products import products_bp
+from app.users.views import users_bp
+from app.products.views import products_bp
 
 app = create_app()
 

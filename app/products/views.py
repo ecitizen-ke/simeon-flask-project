@@ -1,5 +1,6 @@
-from . import products_bp
-from flask import jsonify
+from flask import Blueprint, jsonify
+
+products_bp = Blueprint('products', __name__)
 
 @products_bp.route('/products')
 def get_products():
